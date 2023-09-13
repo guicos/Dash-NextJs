@@ -5,12 +5,12 @@ const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat
 
 export default function Count(){
     const count = [
-        { name: 'cnae', count: 10 },
-        { name: 'company', count: 10 },
-        { name: 'decisionMakers', count: 10 },
-        { name: 'departament', count: 10 },
-        { name: 'office', count: 10 },
-        { name: 'sector', count: 10 },
+        { id: 1, name: 'cnae', count: 10 },
+        { id: 2, name: 'company', count: 10 },
+        { id: 3, name: 'decisionMakers', count: 10 },
+        { id: 4, name: 'departament', count: 10 },
+        { id: 5, name: 'office', count: 10 },
+        { id: 6, name: 'sector', count: 10 },
     ]
     
     return(

@@ -107,7 +107,7 @@ export default function Filters() {
         <div className={styled.div}>
             <Inputs list = {list} />
             <select name="cars" id="cars" onChange={(e) => handleSetConfig(e)} className={styled.select}>
-                <option selected disabled>Escolha um filtro </option>
+                <option defaultValue disabled>Escolha um filtro </option>
                 <option value="decisionMakers" >Decisores</option>
                 <option value="company">Empresa</option>
                 <option value="departament">Departamento</option>
