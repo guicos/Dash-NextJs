@@ -1,0 +1,30 @@
+.select{
+    padding: 1%;
+    border-radius: 7px;
+    border: none;
+    background: #e5464c;
+    color: white;
+    font-size: 12pt;
+    margin: 10px;
+}
+
+.div{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.form input{
+    margin: 10px;
+    width: 332px;
+    height: 40px;
+    border: solid 1px #290c44;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.form input:hover{
+    transform: scale(1.1);
+    border: #e5464c solid 1px;
+}
