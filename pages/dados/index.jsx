@@ -5,7 +5,14 @@ import Menu from '../../src/components/UI/Menu/Menu';
 import style from './Section.module.css';
 import Filters from '../../src/components/Data/Filters/Filters';
 
-const getUser = await User();
+const getUser = [
+  {id: 1, username: 'rinaldoguilherme@gmail.com', role: "admin"},
+  {id: 2, username: 'gustavo.ribeiro@brutamarketing.com.br', role: "admin"},
+  {id: 3, username: 'tamires@brutamarketing.com.br', role: "admin"},
+  {id: 4, username: 'bruno@brutamarketing.com.br', role: "admin"},
+  {id: 5, username: 'gabriella.cardoso@brutamarketing.com.br', role: "admin"},
+  {id: 6, username: 'thais.mejia@brutamarketing.com.br', role: "operator"},
+]
 
 export default function Data() {
   return (

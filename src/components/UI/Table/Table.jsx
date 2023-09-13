@@ -66,7 +66,7 @@ export default function ProductTable(props){
                 onClick={() => requestSort('price')}
                 className={getClassNamesFor('price')}
               >
-                Price
+                Nivel
               </button>
             </th>
           </tr>
