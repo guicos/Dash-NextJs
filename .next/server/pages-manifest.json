@@ -1,0 +1,13 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/dados/cnae": "pages/dados/cnae.html",
+  "/dados/company": "pages/dados/company.html",
+  "/dados/decisionMakers": "pages/dados/decisionMakers.html",
+  "/dados/departament": "pages/dados/departament.html",
+  "/dados": "pages/dados.html",
+  "/dados/sector": "pages/dados/sector.html",
+  "/": "pages/index.html",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}
