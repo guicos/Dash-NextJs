@@ -1,14 +1,19 @@
 import React from 'react';
-import Menu from '../src/components/UI/Menu/Menu';
+import Cnae from '../../../src/connections/cnae'
+import Menu from '../../../src/components/UI/Menu/Menu';
 import style from './Section.module.css';
-import Count from '../src/components/Data/Count/Count';
+import Filters from '../../../src/components/Data/Filters/Filters';
+import ListCompany from '../../../src/components/Data/ListCompany/ListCompany';
 
-export default function Home() {
+const getData = await Cnae();
+
+export default function Data() {
   return (
       <section className={style.section}>
             <Menu/>
           <main className={style.main}>
-            <Count/>
+            <Filters/>
+            <ListCompany products = {getData} />
           </main>
         <style jsx global>{`
         html,

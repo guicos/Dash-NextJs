@@ -53,3 +53,9 @@
   background-color: #e5464c;
   color: white;
 }
+
+.div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

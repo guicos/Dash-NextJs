@@ -1,103 +1,148 @@
 import React from "react";
 import styled from './Filters.module.css';
+import button from "../../UI/Button/Button.module.css";
+import input from "../../UI/Input/Input.module.css";
+import { useRouter } from 'next/navigation'
+
 
 export default function Filters() {
     const [ config, setConfig ] =React.useState('');
     const [ list, setList ] = React.useState([]);
-    const [value, setValue ] = React.useState('');
+    const [value, setValue ] = React.useState({});
+    const router = useRouter()
+
   const getConfig = [
     {
       id: 1,
-      config: "decisionMakers",
-      inputOne: "email",
-      inputTwo: "CNPJ",
-      inputThree: "departament",
-      inputFour: "office",
+      name: "decisionMakers",
+      configs: [
+        {
+          id: 1,
+          configKey: 1,
+          name: "email"
+        },
+        {
+          id: 1,
+          configKey: 1,
+          name: "cnpj"
+        },
+        {
+          id: 1,
+          configKey: 1,
+          name: "departament"
+        },
+        {
+          id: 1,
+          configKey: 1,
+          name: "office"
+        },
+      ]
     },
     {
       id: 2,
-      config: "company",
-      inputOne: "document",
-      inputTwo: "companyName",
-      inputThree: "cnae",
-      inputFour: "sector",
+      name: "company",
+      configs: [
+        {
+          id: 2,
+          configKey: 2,
+          name: "document"
+        },
+        {
+          id: 2,
+          configKey: 2,
+          name: "companyName"
+        },
+        {
+          id: 2,
+          configKey: 2,
+          name: "cnae"
+        },
+        {
+          id: 2,
+          configKey: 2,
+          name: "sector"
+        },
+      ]
     },
     {
       id: 3,
-      config: "departament",
-      inputOne: "name",
-      inputTwo: null,
-      inputThree: null,
-      inputFour: null,
+      name: "departament",
+      configs: [
+        {
+          id: 3,
+          configKey: 3,
+          name: "name"
+        },
+      ]
     },
     {
       id: 4,
-      config: "sector",
-      inputOne: "name",
-      inputTwo: null,
-      inputThree: null,
-      inputFour: null,
+      name: "sector",
+      configs: [
+        {
+          id: 4,
+          configKey: 4,
+          name: "name"
+        },
+      ]
     },
     {
       id: 5,
-      config: "cnae",
-      inputOne: "name",
-      inputTwo: "code",
-      inputThree: null,
-      inputFour: null,
+      name: "cnae",
+      configs: [
+        {
+          id: 5,
+          configKey: 5,
+          name: "name"
+        },
+        {
+          id: 5,
+          configKey: 5,
+          name: "code"
+        },
+      ]
     },
   ];
 
   const handleSetConfig = (e) => {
     setConfig(e.target.value)
+    router.push(`/dados/${e.target.value}`)
+  }
+
+  const handleValue = (e) => {
+    setValue()
   }
 
   React.useEffect(() => {
-    setList(getConfig.filter(element => element.config === config));
+    const value = getConfig.filter(element => element.name === config)
+    setList(value[0]);
   }, [config])
 
   const Inputs = (props) => {
     return (
         <div className={styled.form}>
-              {props.list[0]?.inputOne ? (
-                <input
-                  type="text"
-                  name={props.list[0]?.inputOne}
-                  placeholder={props.list[0]?.inputOne}
-                  value = {value}
-                  onChange={(e) => setValue(e.target.value)}
-                />
-              ) : (
-                ""
-              )}
-              {props.list[0]?.inputTwo ? (
-                <input
-                  type="text"
-                  name={props.list[0]?.inputTwo}
-                  placeholder={props.list[0]?.inputTwo}
-                  value = ''
-                />
-              ) : (
-                ""
-              )}
-              {props.list[0]?.inputThree ? (
-                <input
-                  type="text"
-                  name={props.list[0]?.inputThree}
-                  placeholder={props.list[0]?.inputThree}
-                  value = ''
-                />
-              ) : (
-                ""
-              )}
-              {props.list[0]?.inputFour ? (
-                <input
-                  type="text"
-                  name={props.list[0]?.inputFour}
-                  placeholder={props.list[0]?.inputFour}
-                  value = ''
-                />
-              ): ("")}
+          {
+                props.list?.configs?.map(element => (
+                  <input
+                    type="text"
+                    name={element.name}
+                    placeholder={element.name}
+                    className={input.input}
+                    value={value[element.name]}
+                    onChange={(e) => setValue({...value, [e.target.name]: e.target.value})}
+                  />
+                ))
+            }
+          {list ? 
+          <>
+            <button className={button.button} onClick={() => handleSendSearch(props.value)}>Enviar</button>
+            <select name="cars" id="cars" onChange={(e) => handleSetConfig(e)} className={styled.select}>
+                <option defaultValue >Exporta</option>
+                <option value="csv">CSV</option>
+                <option value="xlsx">XLSX</option>
+            </select>
+          </> : 
+          ''}
         </div>
     )
   }
@@ -107,8 +152,8 @@ export default function Filters() {
         <div className={styled.div}>
             <Inputs list = {list} />
             <select name="cars" id="cars" onChange={(e) => handleSetConfig(e)} className={styled.select}>
-                <option defaultValue disabled>Escolha um filtro </option>
-                <option value="decisionMakers" >Decisores</option>
+                <option defaultValue >Escolha um filtro </option>
+                <option value="decisionMakers">Decisores</option>
                 <option value="company">Empresa</option>
                 <option value="departament">Departamento</option>
                 <option value="sector">Setor</option>

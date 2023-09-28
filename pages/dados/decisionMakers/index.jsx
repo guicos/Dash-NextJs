@@ -1,14 +1,19 @@
 import React from 'react';
-import Menu from '../src/components/UI/Menu/Menu';
+import Decision from '../../../src/connections/decision'
+import Menu from '../../../src/components/UI/Menu/Menu';
 import style from './Section.module.css';
-import Count from '../src/components/Data/Count/Count';
+import Filters from '../../../src/components/Data/Filters/Filters';
+import ListDecision from '../../../src/components/Data/ListDecision/ListDecision';
 
-export default function Home() {
+const getData = await Decision();
+
+export default function Data() {
   return (
       <section className={style.section}>
             <Menu/>
           <main className={style.main}>
-            <Count/>
+            <Filters/>
+            <ListDecision products = {getData} />
           </main>
         <style jsx global>{`
         html,

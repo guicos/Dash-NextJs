@@ -5,9 +5,7 @@
     background-color: #280c42;
     color: white;
     font-family: var(--font-montserrat);
-    overflow-x: scroll;
     border-radius: 20px;
-    overflow-x: hidden;
   }
   
   .thead .th {

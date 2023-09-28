@@ -1,14 +1,19 @@
 import React from 'react';
-import Menu from '../src/components/UI/Menu/Menu';
+import Sector from '../../../src/connections/sector'
+import Menu from '../../../src/components/UI/Menu/Menu';
 import style from './Section.module.css';
-import Count from '../src/components/Data/Count/Count';
+import Filters from '../../../src/components/Data/Filters/Filters';
+import ListSector from '../../../src/components/Data/ListSector/ListSector';
 
-export default function Home() {
+const getData = await Sector();
+
+export default function Data() {
   return (
       <section className={style.section}>
             <Menu/>
           <main className={style.main}>
-            <Count/>
+            <Filters/>
+            <ListSector products = {getData} />
           </main>
         <style jsx global>{`
         html,
